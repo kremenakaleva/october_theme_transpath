@@ -1,0 +1,93 @@
+url = "/partners"
+layout = "default"
+title = "Partners"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+header_image = "about.jpg"
+
+[jumbotron consortium]
+jumbotron = "partners"
+title = 0
+background = "transperant"
+templates = "template1"
+description_limit = 0
+==
+<?php
+use Pensoft\Partners\Models\Partners;
+use Pensoft\Cardprofiles\Models\Profiles;
+
+function onStart(){
+	$this['partners'] =  Partners::where('type', 1)->get();
+$this['a_partners'] =  Partners::where('type', '!=', 1)->get();
+$this['members'] = Profiles::where('category_id',  2)->get();
+
+}
+
+function onPartners(){
+$this['partners'] = [];
+if(post('code')){
+$this['partners'] =  Partners::whereRaw('country_code ILIKE \'%'.post('code').'%\'')->where('type', 1)->get();
+}
+$this['insider_members'] = new class {
+public function getIM($id) {
+return Profiles::where('partner_id', $id)->where('category_id',  2)->get();
+}
+};
+}
+
+function onSinglePartner(){
+$this['partners'] = [];
+if(post('partner_id')){
+$this['partners'] =  Partners::where('id', post('partner_id'))->where('type', 1)->get();
+}
+$this['insider_members'] = new class {
+public function getIM($id) {
+return Profiles::where('partner_id', $id)->where('category_id',  2)->get();
+}
+};
+}
+?>
+==
+<div class="container-fluid partners_background">
+    <div class="container">
+        <span class="tooltiptext" id="tooltip">Bulgaria</span>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 consortium">
+                 {% component 'consortium' %}
+            </div>
+            <div class="col-md-6 col-xs-12 svg_map">
+                {% partial 'components/svg' %}
+            </div>
+        </div>
+
+            <div id="mycomponentpartners" class="row partners_list">
+                {% for key, partner in partners %}
+                    <div class="accordion-border key_{{key}}">
+                        <div class="row middle-xs between-xs accordion-toggle">
+                            <div class="col-xs-10 start-xs title_container">
+                                <img alt="{{ partner.instituion }}" src="{{partner.cover.thumb(auto,49,{'mode':'crop'})}}">
+                            </div>
+                            <div class="col-xs-2 end-xs plusminus"><span class="plus"></span></div>
+                        </div>
+                        <div class="accordion-content" style="display: none;">
+                            <div class="row top-xs">
+                                <div class="col-xs-12 partner-item">
+                                    <div class="col-xs-12">
+                                        <h4><a href="{{partner.instituion_url}}" target="_blank">{{partner.instituion}}</a></h4>
+                                        <div class="country_label">{{partner.country[0].name}}</div>
+                                        <div class="partner_description">{{partner.content|raw}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                {% endfor %}
+
+            </div>
+
+    </div>
+
+</div>

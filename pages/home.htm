@@ -1,0 +1,89 @@
+url = "/"
+layout = "default"
+title = "TRANSPATH"
+is_hidden = 0
+meta_description = "homepage desc"
+seo_keywords = "keywords"
+robot_index = "index"
+robot_follow = "follow"
+
+[article_highlights]
+maxItems = 3
+title = "Latest news"
+baseUrl = "/news"
+templates = "template4"
+thumb_width = 296
+thumb_height = 225
+
+[Timeline]
+limit = 3
+upcoming = 0
+marked_for_display = 0
+templates = "template3"
+==
+<?php
+use Pensoft\Articles\Models\Article;
+
+function onStart(){
+    $this['highlights'] = Article::news()->descPublished()->take(10)->get()->map(function($item){
+        $item->content = str_limit(strip_tags($item->content), 140);
+        $item->href = $item->slug;
+        return $item;
+    });
+}
+?>
+==
+<!-- latest from news -->
+        <div class="container highlights-news">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="base_heading highlight_new_template_3">Latest news</h1>
+                </div>
+            </div>
+            <div class="row newslist">
+                <div class="col-xs-12">
+                    {% for highlight in highlights %}
+                    <div class="col-xs-12 col-md-3 news-item item-">
+                        <div class="row news_column aos-init aos-animate" data-aos="fade-up">
+                            <a class="news-image col-xs-12 center-xs" href="{{'news'|page}}/{{highlight.href}}">
+                                <div class="shadow"><img class="news-img-top" src="{{highlight.cover.thumb(296, 224, {'mode': 'crop'})}}"></div>
+                            </a>
+                            <div class="news-container col-xs-12">
+                                <div class="text-published">{{highlight.pretty_published_at}}</div>
+                                <div class="news-title">
+                                    <h3 class="card-title"><a href="{{'news'|page}}/{{highlight.href}}">{{highlight.title}}</a></h3>
+                                </div>
+                                <div class="news-description">
+                                    {{highlight.content|raw}}
+                                </div>
+                                <a class="read_more" href="{{'news'|page}}/{{highlight.href}}">
+                                    Read more <i></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+<div class="container-fluid upcoming-events">
+    <div class="container">
+        <h1 class="base_heading">UPCOMING EVENTS</h1>
+        {% component 'Timeline' %}
+    </div>
+</div>
+<div class="container-fluid background-dots">
+	<div class="container">
+	<!-- subscribes -->
+        <div class="row">
+            <div class="col-xs-12"><h1 class="display-1">Follow {{this.theme.site_name}}</h1></div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="twitter-widget">
+                    <a class="twitter-timeline" href="https://twitter.com/TIER2Project?ref_src=twsrc%5Etfw">Tweets by TIER2Project</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

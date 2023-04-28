@@ -1,0 +1,39 @@
+url = "/about"
+layout = "default"
+title = "Background"
+is_hidden = 0
+meta_description = "about page"
+seo_keywords = "keywords"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "partners.jpg"
+
+[siteSearchInclude]
+
+[jumbotron background]
+jumbotron = "background"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron background_image]
+jumbotron = "background-image"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron objectives]
+jumbotron = "objectives"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+
+<div class="container background">
+    {% component 'background' %}
+</div>
+
+    <div class="container objectives">
+        {% component 'objectives' %}
+    </div>
