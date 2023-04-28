@@ -1,8 +1,8 @@
 {
-    "name": "october/pensoft-tier2-theme",
+    "name": "october/pensoft-transpath-theme",
     "type": "october-theme",
-    "description": "Pensoft TIER2 October CMS theme",
-    "keywords": ["october", "cms", "tier2", "theme"],
+    "description": "Pensoft TRANSPATH October CMS theme",
+    "keywords": ["october", "cms", "transpath", "theme"],
     "authors": [
         {
             "name": "Kremena Kaleva",
