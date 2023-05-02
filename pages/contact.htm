@@ -25,7 +25,7 @@ function onStart(){
 				<div class="contact_info row">
 					<div class="col-md-5 col-xs-12 coordinator_image aos-init aos-animate" data-aos="fade-up">
                         {% if profile.avatar %}
-                        <img src="{{profile.avatar.thumb(197, 197, {'mode':'crop'})}}" class="fr-fic fr-dii">
+                        <img src="{{profile.avatar.thumb(176, 176, {'mode':'crop'})}}" class="fr-fic fr-dii">
                         {% else %}
                         <img alt="{{ profile.names }}" src="{{ 'avatar.svg'|media }}" class="no-image">
                         {% endif %}
@@ -35,10 +35,13 @@ function onStart(){
 						{% if profile.position %}<p class="card_title">{{profile.position}}</p>{% endif %}
 						{% if profile.department %}<p class="contact_affiliation">{{profile.department}}</p>{% endif %}
 						{% if profile.address %}<p class="contact_address"><i class="pr big p-location"></i>{{profile.address}}</p>{% endif %}
+						{% if profile.content %}<p class="contact_address">{{profile.content|raw}}</p>{% endif %}
 						{% if profile.phone %}<p class="contact_phone"><i class="pr big p-phone"></i>{{profile.phone}}</p>{% endif %}
-						{% if profile.email %}<p class="contact_mail"><i class="pr big p-mail"></i><a href="mailto:{{profile.email}}">E-mail</a></p>{% endif %}
+
 					</div>
 				</div>
+                {% if profile.email %}<div class="mail_info row"><i class="pr big p-mail"></i><a href="mailto:{{profile.email}}">{{profile.email}}</a></div>{% endif %}
+
 			</div>
 		{% endfor %}
 	</div>

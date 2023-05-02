@@ -402,8 +402,7 @@ p:has(.edit-link){
         align-items: center;
         padding: 20px 40px 0 10px;
         .btn-primary{
-            background-color: @link-color!important;
-            border-color: @link-color!important;
+            background: @link-color!important;
         }
     }
 
@@ -627,6 +626,10 @@ p:has(.edit-link){
   }
 
   h1{
+      &.base_heading{
+          justify-content: center;
+          display: flex;
+      }
     .breakpoint-small-down({
       text-align: center;
     })
