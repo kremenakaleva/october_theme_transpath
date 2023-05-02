@@ -88,8 +88,8 @@ $this['slug'] = $this->param('slug');
                         <span class="date_year">{{entry.start|date("Y")}}</span>
                     </div>
                     <div class="col-md-9 col-xs-12 content_text">
-                        <span class="date_week mb-1">{{entry.start|date("l")}}</span>
-                        {{entry.title|raw}}
+                        <span class="date_week mb-1">{{entry.title|raw}}</span>
+                        {{ entry.description|length > 200 ? entry.description|striptags|slice(0, 200) ~ '...' : entry.description|raw  }}
                     </div>
                     <div class="col-md-3 col-xs-12 end-md center-xs">
                         <a href="{{'events'|page}}/{{entry.slug}}" class="read_more">Read more <i></i></a>
@@ -133,7 +133,7 @@ $this['slug'] = $this->param('slug');
             <div class="text-place">{{entry.place}}</div>
 
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12 mt-2">
             <div class="content">
                 {{entry.description|raw}}
             </div>

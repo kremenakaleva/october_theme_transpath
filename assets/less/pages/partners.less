@@ -48,48 +48,14 @@ ul.partners_logos_list li{
     });
 }
 
-
-.assoc_partners{
-    padding: 30px 0;
-    margin-top: 30px;
-    &.half-a-border-on-top {
-        border-top:2px solid #C3C4D7;
-        position: relative;
-
-        &:after {
-            padding:0;margin:0;display:block;/* probably not really needed? */
-            content: "";
-            width:50%;
-            height:4px;/* slight higher to work around rounding errors(?) on some zoom levels in some browsers. */
-            background-color:white;
-            position: absolute;
-            right:0;
-            top:-4px;
-        }
-    }
-
-    .partner_title a{
-        color: @default-color;
-        &:hover{
-            opacity: 0.7;
-        }
-    }
-
+svg{
+    width: 680px;
+    height: 680px;
+    .breakpoint-large-down({
+        height: unset;
+    });
 }
 
-//
-//.partner_cover.width{
-//  height: 160px;
-//  width: 160px;
-//  line-height: 140px!important;
-//}
-//
-//.partner_cover.height{
-//  text-align: center;
-//  height: 119px;
-//  width: 119px;
-//  line-height: 185px!important;
-//}
 .fill_default:hover,
 .fill_default.fill_ES:hover,
 .fill_default.fill_AU:hover,
@@ -114,6 +80,7 @@ ul.partners_logos_list li{
 .partners_list{
     display: flex!important;
     justify-content: space-between;
+    margin-top: 70px;
     img{
         width: auto;
     }
