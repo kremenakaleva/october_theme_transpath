@@ -31,8 +31,8 @@ function onStart(){
                         {% endif %}
                     </div>
 					<div class="col-md col-xs-12 coordinator_info">
+                        {% if profile.position %}<p class="card_title">{{profile.position}}</p>{% endif %}
 						<h2>{{profile.names}}</h2>
-						{% if profile.position %}<p class="card_title">{{profile.position}}</p>{% endif %}
 						{% if profile.department %}<p class="contact_affiliation">{{profile.department}}</p>{% endif %}
 						{% if profile.address %}<p class="contact_address"><i class="pr big p-location"></i>{{profile.address}}</p>{% endif %}
 						{% if profile.content %}<p class="contact_address">{{profile.content|raw}}</p>{% endif %}

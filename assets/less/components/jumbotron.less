@@ -43,10 +43,11 @@
         div{
             text-align: center;
             margin-bottom: 50px;
-            padding: 114px 110px;
+            //padding: 114px 110px;
             position: relative;
             display: flex;
             align-items: center;
+            padding: 8% 5%;
             span{
                 position: absolute;
                 background: url("../../assets/images/blue element.svg") center no-repeat;
@@ -62,94 +63,105 @@
                 font-weight: bold;
                 font-size: 25px;
             }
+            .breakpoint-large-down({
+                background-size: contain!important;
+                font-size: 0.9em;
+                padding: 67px 41px!important;
+                background-position-y: top!important;
+            });
             &:nth-of-type(1){
-                background: url("../../assets/images/obj1.svg") top center no-repeat;
-                background-size: contain;
-                padding: 70px 83px;
+                background: url("../../assets/images/obj1.svg") center no-repeat;
+                background-size: 90%;
                 span{
-                    top: 5px;
-                    left: 198px;
+                    top: 30px;
+                    left: 155px;
                     .breakpoint-large-down({
                         left: 108px;
+                        top: -16px;
                     });
                 }
                 .breakpoint-large-down({
-                    padding: 70px 20px;
+                    //background-size: contain;
+                    //padding: 70px 20px;
                 });
             }
             &:nth-of-type(2){
                 background: url("../../assets/images/obj2.svg") top center no-repeat;
-                background-size: contain;
-                padding: 125px 121px;
+                background-size: 90%;
                 span{
-                    top: 35px;
-                    left: 179px;
+                    top: 14px;
+                    left: 118px;
                     .breakpoint-large-down({
-                        left: 108px;
+                        left: 92px;
+                        top: 0;
                     });
                 }
                 .breakpoint-large-down({
-                    padding: 98px 20px;
+                    //background-size: contain;
+                    //padding: 98px 20px;
                 });
             }
             &:nth-of-type(3){
-                background: url("../../assets/images/obj3.svg") top center no-repeat;
-                background-size: contain;
-                padding: 138px 107px;
+                background: url("../../assets/images/obj3.svg") center no-repeat;
+                background-size: 90%;
                 span{
-                    top: 27px;
-                    left: 233px;
+                    top: 9px;
+                    left: 185px;
                     .breakpoint-large-down({
-                        left: 108px;
+                        left: 128px;
+                        top: -25px;
                     });
                 }
                 .breakpoint-large-down({
-                    padding: 98px 20px;
+                    //background-size: contain;
+                    //padding: 98px 20px;
                 });
             }
             &:nth-of-type(4){
-                background: url("../../assets/images/obj4.svg") top center no-repeat;
-                background-size: contain;
-                padding: 114px 110px;
+                background: url("../../assets/images/obj4.svg") center no-repeat;
+                background-size: 90%;
                 span{
-                    top: 27px;
-                    left: 233px;
+                    top: 20px;
+                    left: 179px;
                     .breakpoint-large-down({
-                        left: 108px;
+                        left: 133px;
+                        top: -24px;
                     });
                 }
                 .breakpoint-large-down({
-                    padding: 98px 20px;
+                    //background-size: contain;
+                    //padding: 98px 20px;
                 });
             }
             &:nth-of-type(5){
                 background: url("../../assets/images/obj5.svg") top center no-repeat;
-                background-size: contain;
+                background-size: 90%;
                 span{
-                    top: 58px;
-                    left: 155px;
+                    top: 36px;
+                    left: 102px;
                     .breakpoint-large-down({
-                        top: 26px;
-                        left: 108px;
+                        top: 18px;
+                        left: 83px;
                     });
                 }
                 .breakpoint-large-down({
-                    padding: 98px 20px;
+                    padding: 105px 50px 40px 50px!important;
                 });
             }
             &:nth-of-type(6){
                 background: url("../../assets/images/obj6.svg") top center no-repeat;
-                background-size: contain;
+                background-size: 100%;
+                padding: 6% 5%;
                 span{
-                    top: 36px;
-                    left: 188px;
+                    top: 0px;
+                    left: 136px;
                     .breakpoint-large-down({
-                        top: 26px;
-                        left: 108px;
+                        top: -13px;
+                        left: 99px;
                     });
                 }
                 .breakpoint-large-down({
-                    padding: 98px 20px;
+                    padding: 59px 27px!important;
                 });
             }
         }

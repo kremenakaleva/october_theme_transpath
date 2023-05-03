@@ -275,12 +275,12 @@
             z-index: 998;
             right: -(@cycle-width / 2) + @timeline-cycle-border-width  - 2;
             .breakpoint-small-down({
-                background-size: 50px;
+                background-size: 38px;
             });
         }
 
         .breakpoint-small-down({
-            padding: @timeline-item-padding-x @timeline-item-padding-x/2!important; ;
+            padding: @timeline-item-padding-x @timeline-item-padding-x/3!important; ;
         });
 }
 
@@ -304,7 +304,7 @@
             &::after {
                 left: -(@cycle-width / 2) - @timeline-cycle-border-width;
                 background: url("../../assets/images/upcoming-events-element2.svg") center no-repeat;
-                background-size: 50px;
+                background-size: 42px;
             }
 
             .timeline-header{
@@ -350,10 +350,11 @@
                     color: @link-color;
                     font-weight: bold;
                      left: 198px;
-                     width: 81%!important;
+                     width: 79%!important;
                     position: absolute;
-                    top: 96px;
+                    top: 120px;
                     text-align: center;
+
 
                 }
 

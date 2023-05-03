@@ -28,6 +28,8 @@
     &.fixed {
         position: fixed;
         z-index: @zindex-fixed;
+        display: flex;
+        justify-content: space-between;
     }
 
 
@@ -231,6 +233,9 @@
             visibility: hidden;
             .breakpoint-large-down({
                 visibility: visible;
+                display: block;
+                width: 200px;
+                height: 77px;
             });
         }
         &.scrolled {
@@ -400,9 +405,9 @@ nav .pr.p-search.large.search-btn{
         background: @white-color;
     }
 
-    //#menu, #menu > *:not(.search), .navbar-nav, .navbar-nav > *:not(.search){
-    //    visibility: hidden;
-    //}
+    #menu, #menu *{
+        visibility: hidden;
+    }
 
     #menu
     {
@@ -559,6 +564,13 @@ nav .pr.p-search.large.search-btn{
                     }
                 }
             }
+        }
+    }
+
+    .search-btn{
+
+        &:before {
+            content: "\ea82";
         }
     }
 }

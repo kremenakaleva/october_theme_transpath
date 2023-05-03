@@ -242,8 +242,8 @@ p:has(.edit-link){
     background-size: 100%;
     padding-top: 170px;
     .breakpoint-small-down({
-        background-position-y: 40px!important;
-        padding-top: 70px!important;
+        background-position-y: 0px !important;
+        padding-top: 10px !important;
     });
 }
 
@@ -288,9 +288,13 @@ p:has(.edit-link){
     position: relative;
     z-index: 2;
 
-    a:hover{
-        opacity: 0.4!important;
+    а{
+        color: @green-color!important;
+        &:hover{
+            opacity: 0.4!important;
+        }
     }
+
 
     .container-fluid {
         &.dark-background {
@@ -301,11 +305,14 @@ p:has(.edit-link){
                 padding: 0;
                 margin: 20px 0;
 
-
                 a {
                     line-height: 1.7em;
                     font-size: 1em;
                     font-weight: bold;
+                    color: @green-color!important;
+                    &:hover{
+                        opacity: 0.4!important;
+                    }
                 }
             }
         }
@@ -383,16 +390,30 @@ p:has(.edit-link){
         .breakpoint-small-down ({
           font-size: 12px!important;
         });
-      a{
-        color: @footer-text-color;
-      }
+
     }
     .social-networks {
         flex: 1 0 auto;
+        a {
+            color: @green-color!important;
+            &:hover{
+                opacity: 0.4!important;
+            }
+        }
         .breakpoint-small-down ({
           margin: 0 auto;
         });
     }
+
+    .privacy-policy-link{
+        a {
+            color: @green-color!important;
+            &:hover{
+                opacity: 0.4!important;
+            }
+        }
+    }
+
     .breakpoint-large-down ({
       height: auto;
     });
@@ -424,6 +445,10 @@ p:has(.edit-link){
 
     .project_footer_logo{
         width: 250px;
+        margin-bottom: 20px;
+        .breakpoint-large-down({
+            margin: 10px auto;
+        });
     }
 }
 
@@ -758,7 +783,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
         position: absolute;
         padding-top: 200px;
         .breakpoint-small-down({
-            padding-top: 100px;
+            padding-top: 66px;
         });
     }
 }
