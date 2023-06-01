@@ -12,6 +12,7 @@ limit = "null"
 category = "null"
 language = "en"
 redirect_to_detailed_page = "false"
+default_view = "dayGridMonth"
 ==
 <?php
 use Pensoft\Calendar\Models\Entry;
@@ -87,13 +88,28 @@ $this['slug'] = $this->param('slug');
                         <span class="date_month">{{entry.start|date("M")}} &nbsp;  |</span>
                         <span class="date_year">{{entry.start|date("Y")}}</span>
                     </div>
-                    <div class="col-md-9 col-xs-12 content_text">
-                        <span class="date_week mb-1">{{entry.title|raw}}</span>
-                        {{ entry.description|length > 200 ? entry.description|striptags|slice(0, 200) ~ '...' : entry.description|raw  }}
+                    <div class="row" style="margin-top: 80px;">
+                        {% if entry.cover_image %}
+        
+                            <div class="col-md-2 col-xs-12">
+                           
+                                <img class="content" src="{{ entry.cover_image|crop_image|resize(193, auto, { mode: 'crop' }) }}" style="border-radius: 20px;"/>
+                            </div>
+
+                        {% endif %}
+                            <div class="col-md col-xs-12">
+                                <div class="row middle-xs">
+                                    <div class="col-md-9 col-xs-12 content_text">
+                                        <span class="date_week mb-1">{{entry.title|raw}}</span>
+                                        {{ entry.description|length > 200 ? entry.description|striptags|slice(0, 200) ~ '...' : entry.description|raw  }}
+                                    </div>
+                                    <div class="col-md-3 col-xs-12 end-md center-xs">
+                                        <a href="{{'events'|page}}/{{entry.slug}}" class="read_more">Read more <i></i></a>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                    <div class="col-md-3 col-xs-12 end-md center-xs">
-                        <a href="{{'events'|page}}/{{entry.slug}}" class="read_more">Read more <i></i></a>
-                    </div>
+                    
                 </div>
 
                 {% endfor %}
@@ -117,12 +133,15 @@ $this['slug'] = $this->param('slug');
 {% else %}
 
 {% if entry %}
-<div class="container" style="max-width: 950px;">
+<div class="container">
     <div class="row single-news-item">
-        {% if entry.image %}
+        {% if entry.cover_image %}
+        
         <div class="col-md col-xs-12">
-            <img class="content left" src="{{ entry.image|crop_image|resize(555, auto, { mode: 'crop' }) }}" />
+       
+            <img class="content" src="{{ entry.cover_image|crop_image|resize(623, auto, { mode: 'crop' }) }}" />
         </div>
+
         {% endif %}
 
         <div class="col-md col-xs-12">
