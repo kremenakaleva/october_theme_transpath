@@ -148,7 +148,7 @@ $this['slug'] = $this->param('slug');
             <div class="news-title">
                 <h1 class="single-new-title">{{entry.title}}</h1>
             </div>
-            <div class="text-published">{{entry.start|date("d M Y")}} - {{entry.end|date("d M Y")}}</div>
+            <div class="text-published">{% if entry.start|date("d M Y") != entry.end|date("d M Y") %}{{entry.start|date("d M Y")}} - {{entry.end|date("d M Y")}} {% else %} {{entry.start|date("d M Y")}} {% endif %}</div>
             <div class="text-place">{{entry.place}}</div>
 
         </div>

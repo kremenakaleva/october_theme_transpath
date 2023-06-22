@@ -4,7 +4,6 @@ title = "News"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-
 ==
 <?php
 use Pensoft\Articles\Models\Article;
@@ -69,7 +68,6 @@ $this['related'] = $related;
 }
 ?>
 ==
-
 {% if is_detail_page %}
 <div class="container">
     <div class="row single-news-item">
@@ -113,7 +111,7 @@ $this['related'] = $related;
 </div>
 {% else %}
 <div class="container">
-    <div class="row newslist">
+    <div class="row newslist around-xs">
         {% for highlight in records %}
         <div class="col-xs-12 col-md-4 news-item item-{{highlight.slug}}">
 
@@ -147,4 +145,3 @@ $this['related'] = $related;
 
 </div>
 {% endif %}
-
