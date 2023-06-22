@@ -7,13 +7,6 @@ seo_keywords = "keywords"
 robot_index = "index"
 robot_follow = "follow"
 
-[article_highlights]
-maxItems = 3
-title = "Latest news"
-baseUrl = "/news"
-templates = "template4"
-thumb_width = 296
-thumb_height = 225
 
 [Timeline]
 limit = 3
@@ -25,7 +18,7 @@ templates = "template3"
 use Pensoft\Articles\Models\Article;
 
 function onStart(){
-    $this['highlights'] = Article::news()->descPublished()->take(10)->get()->map(function($item){
+    $this['highlights'] = Article::news()->descPublished()->take(3)->get()->map(function($item){
         $item->content = str_limit(strip_tags($item->content), 140);
         $item->href = $item->slug;
         return $item;
