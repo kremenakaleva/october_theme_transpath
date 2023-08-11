@@ -120,16 +120,23 @@ $(document).ready(function() {
 
     $('.work_packages h2.underline').hide();
 
-    $('body').on('click', '.work_packages .accordion-toggle, .partners_list .accordion-toggle', function () {
+    $('body').on('click', '.work_packages .accordion-toggle, .partners_list .accordion-toggle, .partners-insider .accordion-toggle', function () {
         $('.ui-accordion-header').show();
         if ($(this).next(".accordion-content").is(':visible')) {
             $(this).next(".accordion-content").slideUp(300);
-            $(this).children().find(".plusminus").text('+');
-            $(this).children(".plusminus").html('<span class="plus"></span>');
+            if($(this).children().length == 2){
+                $(this).children(".plusminus").html('<span class="plus"></span>');
+            }else{
+                $(this).children(".plusminus").html('<span>Show members</span><span class="plus"></span>');
+            }
+
         } else {
             $(this).next(".accordion-content").slideDown(300);
-            $(this).children().find(".plusminus").text('-');
-            $(this).children(".plusminus").html('<span class="minus"></span>');
+            if($(this).children().length == 2){
+                $(this).children(".plusminus").html('<span class="minus"></span>');
+            }else{
+                $(this).children(".plusminus").html('<span>Hide members</span><span class="minus"></span>');
+            }
         }
     });
 

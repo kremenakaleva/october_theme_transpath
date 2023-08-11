@@ -192,6 +192,99 @@
     }
 }
 
+/* insider */
+.partners-insider .accordion-border{
+    background: @white-color;
+    box-shadow:  none;
+    -moz-box-shadow:  none;
+    -webkit-box-shadow:  none;
+    border-radius: 0px;
+    margin: 0 0 15px 0!important;
+    cursor: pointer;
+    max-width: 97%;
+    font-size: 15px;
+    color: @dark-color;
+
+    .breakpoint-small-down({
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    });
+}
+
+.partners-insider .accordion-border{
+    padding: 0px;
+    max-width: 100%;
+    .breakpoint-small-down({
+        max-width: 100%;
+    });
+}
+
+.partners-insider .accordion-toggle{
+    background: none;
+    border: none;
+    border-radius: unset;
+    padding: 0;
+    color: @dark-color;
+    font-size: 15px;
+    font-weight: 500;
+    min-height: 90px;
+    .breakpoint-small-down({
+        font-size: 14px;
+    });
+
+}
+.partners-insider .accordion-content{
+    padding: 0px;
+    line-height: 1.5em!important;
+    font-size: 15px;
+    color: @dark-color;
+
+    .col-md-12{
+        padding: 0;
+    }
+}
+
+
+
+.partners-insider .accordion-content p{
+    color: @dark-color;
+    .breakpoint-large-down({
+        padding: 0!important;
+        text-align: left!important;
+    });
+}
+
+.partners-insider .plusminus{
+    max-width: 255px!important;
+    width: 100% !important;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    .plus, .minus{
+        text-align: center;
+        vertical-align: middle;
+        color: @link-color;
+        font-size: 30px;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        display: block;
+        margin-left: 20px;
+    }
+
+    .plus{
+        background: url("../../assets/images/arrow.svg") right no-repeat;
+
+    }
+    .minus{
+        background: url("../../assets/images/arrow.svg") right no-repeat;
+        transform: rotate(180deg);
+    }
+}
+
 .work_packages .green_bullet{
     background-image: linear-gradient(to right, #0882B7 , #6CB144);
     color: @white-color;
