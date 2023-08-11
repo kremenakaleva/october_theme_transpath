@@ -182,21 +182,44 @@ return Response::download($pathToFile, $fileName, $headers);
         {% endif %}
 
         {% if newsletters.count() %}
-<div class="container-fluid bg-newsletter">
+
     <div class="container">
         <div class="row card-container-row start-xs newsletters" id="newsletters" style="display: none;">
             {% for record in newsletters %}
-            <div class="col-md-12 col-xs-12 newsletter_item">
+            {# <div class="col-md-12 col-xs-12 newsletter_item">
                 <div class="newsletter-iframe">
-                    <iframe width="100%" height="583" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe width="100%" height="783" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             src="{{record.url}}">
                     </iframe>
                 </div>
+            </div> #}
+
+            <div class="col-md-4 col-xs-12 center-xs">
+                <h3><b>{{record.name}}</b></h3>
+                <p class="newsletter_container"><img src="{{record.newsletter_image.thumb(380,240,{'mode':'crop'})}}" title="{{record.name}}"></p>
+
+                {% if record.file %}
+                <div class="col-xs-12">
+                    <div class="text-center">
+
+                        
+                        <a class="link btn btn-primary mb-1" href="{{record.url}}" target="_blank">Read the newsletter</a>
+
+                        {{form_open({ request: 'onDownloadFile' }) }}
+                        <input type="hidden" value="{{record.file.id}}" name="id">
+                        <button type="submit" class="btn btn-primary" data-attach-loading>Download <i class="pr p-download"></i></button>
+                        {{ form_close() }}
+
+                    </div>
+                </div>
+                {% endif %}
+
             </div>
+
             {% endfor %}
         </div>
     </div>
-</div>
+
         {% endif %}
 
         {% if videos.count() %}
@@ -237,4 +260,3 @@ return Response::download($pathToFile, $fileName, $headers);
         </div>
         </div>
         {% endif %}
-

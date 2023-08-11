@@ -138,6 +138,7 @@
 }
 
 .logo,
+.newsletters,
 .presentation{
     .card_image_container{
         height: 312px;
@@ -195,6 +196,25 @@
             img{
                 width: 192px;
                 height: auto;
+                object-fit: contain;
+            }
+
+        }
+
+        .newsletter_container{
+            background: @white-color 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;;
+            -moz-box-shadow: 0px 3px 6px #00000029;;
+            -webkit-box-shadow: 0px 3px 6px #00000029;;
+            //box-shadow: -10px 7px 20px #0041651A;
+            border-radius: 20px;
+            padding: 20px 0;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                border-radius: 20px;
                 object-fit: contain;
             }
 
@@ -298,7 +318,7 @@
 
 .newsletter-iframe{
     iframe{
-        width: 401px!important;
+        width: 680px!important;
         border-radius: 3px;
         margin-top: 80px!important;
         .breakpoint-large-down({
