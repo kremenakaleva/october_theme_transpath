@@ -18,7 +18,7 @@ templates = "template3"
 use Pensoft\Articles\Models\Article;
 
 function onStart(){
-    $this['highlights'] = Article::news()->descPublished()->take(3)->get()->map(function($item){
+    $this['highlights'] = Article::news()->descPublished()->take(4)->get()->map(function($item){
         $item->content = str_limit(strip_tags($item->content), 140);
         $item->href = $item->slug;
         return $item;
@@ -64,19 +64,5 @@ function onStart(){
     <div class="container">
         <h1 class="base_heading">UPCOMING EVENTS</h1>
         {% component 'Timeline' %}
-    </div>
-</div>
-<div class="container-fluid background-dots">
-	<div class="container">
-	<!-- subscribes -->
-        <div class="row">
-            <div class="col-xs-12"><h1 class="display-1">Follow {{this.theme.site_name}}</h1></div>
-            <div class="col-sm-6 col-xs-12">
-                <div class="twitter-widget">
-                    <a class="twitter-timeline" href="https://twitter.com/TRANSPATH_EU?ref_src=twsrc%5Etfw">Tweets by TRANSPATH_EU</a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
