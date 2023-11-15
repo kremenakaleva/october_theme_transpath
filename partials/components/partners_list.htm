@@ -24,7 +24,7 @@
                                     {% for profile in insider_members.getIM(partner.id) %}
                                     <div class="col-md-12 col-xs-12">
                                         <div class="contact_info row">
-                                            <div class="col-md-2 col-xs-12 coordinator_image">
+                                            <div class="col-md-5 col-xs-12 coordinator_image">
                                                 {% if profile.avatar %}
                                                 <!--                            <img alt="{{ profile.names }}" src="{{profile.avatar.thumb(175,145,{'mode':'crop'})}}">-->
                                                 <img alt="{{ profile.names }}" src="{{profile.avatar.thumb(119,119,{'mode':'crop'})}}">
@@ -32,10 +32,10 @@
                                                 <img alt="{{ profile.names }}" src="{{ 'avatar.svg'|media }}" width="119" height="119" class="no-image">
                                                 {% endif %}
                                             </div>
-                                            <div class="col-md-10 col-xs-12 coordinator_info">
-                                                <h4>{{ profile.names }}</h4>
-                                                <div class="body">{{ profile.content|raw }}</div>
+                                            <div class="col-md col-xs-12 coordinator_info">
+                                                <h2>{{ profile.names }}</h2>
                                             </div>
+                                            <div class="col-xs-12 body pt-1">{{ profile.content|raw }}</div>
                                         </div>
                                     </div>
                                     {% endfor %}
@@ -52,4 +52,3 @@
 
 
 {% endfor %}
-

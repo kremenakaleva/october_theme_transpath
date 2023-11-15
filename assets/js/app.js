@@ -120,7 +120,7 @@ $(document).ready(function() {
 
     $('.work_packages h2.underline').hide();
 
-    $('body').on('click', '.work_packages .accordion-toggle, .partners_list .accordion-toggle, .partners-insider .accordion-toggle', function () {
+    $('body').on('click', '.partners_list .accordion-toggle, .partners-insider .accordion-toggle', function () {
         $('.ui-accordion-header').show();
         if ($(this).next(".accordion-content").is(':visible')) {
             $(this).next(".accordion-content").slideUp(300);
@@ -137,6 +137,19 @@ $(document).ready(function() {
             }else{
                 $(this).children(".plusminus").html('<span>Hide members</span><span class="minus"></span>');
             }
+        }
+    });
+
+    $('body').on('click', '.work_packages .accordion-toggle', function () {
+        $('.ui-accordion-header').show();
+        if ($(this).next(".accordion-content").is(':visible')) {
+            $(this).next(".accordion-content").slideUp(300);
+                $(this).children(".plusminus").html('<span class="plus"></span>');
+
+        } else {
+            $(this).next(".accordion-content").slideDown(300);
+                $(this).children(".plusminus").html('<span class="minus"></span>');
+            
         }
     });
 
@@ -166,9 +179,9 @@ $(document).ready(function() {
 		// If no match is found, use the first link as the initial active tab.
 		$active = $($links.filter("[href=\'"+location.hash+"\']")[0] || $links[0]);
 
-        if(!$(this).parent().parent().hasClass('library')){
-            $active.addClass('active');
-        }
+        // if(!$(this).parent().parent().hasClass('library')){
+        //     $active.addClass('active');
+        // }
 
 		$content = $($active[0].hash);
 
@@ -250,7 +263,7 @@ $(document).ready(function() {
 	$('.card-img-top').attr('data-aos', 'fade-up');
 	$('.logo-container').attr('data-aos', 'fade-up');
 	$('.subscribe-items a').attr('data-aos', 'fade-up');
-	$('.icons a').attr('data-aos', 'fade-up');
+	// $('.icons a').attr('data-aos', 'fade-up');
 	$('.about h1.display-1').attr('data-aos', 'fade-up');
 	$('h2.underline').attr('data-aos', 'fade-up');
 	$('.news_column').attr('data-aos', 'fade-up');
