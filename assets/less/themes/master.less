@@ -399,6 +399,17 @@ p:has(.edit-link){
             &:hover{
                 opacity: 0.4!important;
             }
+            &.p-mail{
+                margin-top: -2px;
+                .breakpoint-large-down({
+                    margin-top: 5px;
+                });
+            }
+            &.p-linkedin{
+                .breakpoint-large-down({
+                    margin-top: 2px;
+                });
+            }
         }
         .breakpoint-small-down ({
           margin: 0 auto;
@@ -441,6 +452,9 @@ p:has(.edit-link){
 
     .footer-right-border{
         border-right: 1px solid #757f8d;
+        .breakpoint-large-down({
+            border-right: none;
+        });
     }
 
     .project_footer_logo{
