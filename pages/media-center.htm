@@ -21,7 +21,7 @@ use System\Models\File;
 function onStart(){
 	$this['logos'] =  MediaLogos::get();
 	$this['flyers'] =  Flyers::get();
-	$this['newsletters'] =  Newsletters::get();
+	$this['newsletters'] =  Newsletters::orderBy('date', 'desc')->get();
 	$this['presentations'] =  Presentations::get();
 	$this['pressreleases'] =  Pressreleases::get();
 	$this['videos'] =  Videos::get();
@@ -198,21 +198,42 @@ return Response::download($pathToFile, $fileName, $headers);
                 <h3><b>{{record.name}}</b></h3>
                 <p class="newsletter_container"><img src="{{record.newsletter_image.thumb(380,240,{'mode':'crop'})}}" title="{{record.name}}"></p>
 
+                {% if record.url %}
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <a class="link btn btn-primary mb-1" href="{{record.url}}" target="_blank">Read the newsletter</a>
+                    </div>
+                </div>
+                {% else %}
                 {% if record.file %}
                 <div class="col-xs-12">
                     <div class="text-center">
-
-                        
-                        <a class="link btn btn-primary mb-1" href="{{record.url}}" target="_blank">Read the newsletter</a>
-
                         {{form_open({ request: 'onDownloadFile' }) }}
                         <input type="hidden" value="{{record.file.id}}" name="id">
                         <button type="submit" class="btn btn-primary" data-attach-loading>Download <i class="pr p-download"></i></button>
                         {{ form_close() }}
 
+<!--                        <a class="link btn btn-primary btn-newsletters" style="max-width: unset" href="{{ '/newsletters?download=' ~ record.file.id ~ '&file_name=' ~ record.name|url_encode }}">Download the newsletter</a>-->
                     </div>
                 </div>
                 {% endif %}
+                {% endif %}
+
+<!--                {% if record.file %}-->
+<!--                <div class="col-xs-12">-->
+<!--                    <div class="text-center">-->
+
+
+<!--                        <a class="link btn btn-primary mb-1" href="{{record.url}}" target="_blank">Read the newsletter</a>-->
+
+<!--                        {{form_open({ request: 'onDownloadFile' }) }}-->
+<!--                        <input type="hidden" value="{{record.file.id}}" name="id">-->
+<!--                        <button type="submit" class="btn btn-primary" data-attach-loading>Download <i class="pr p-download"></i></button>-->
+<!--                        {{ form_close() }}-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endif %}-->
 
             </div>
 
